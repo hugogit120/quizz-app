@@ -4,17 +4,23 @@
     justify-content: center;
     align-items: center;
     background-color: white;
-    height: 30rem !important;
-    width: 38rem !important;
+    height: 32rem !important;
+    width: 41rem !important;
     border-radius: 8px;
     -webkit-box-shadow: -2px 4px 8px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow:    -2px 4px 8px 0px rgba(50, 50, 50, 0.75);
     box-shadow:         -2px 4px 8px 0px rgba(50, 50, 50, 0.75);;
 }
 
-.question-name{
-    margin-top: 5rem;
+form {
+    margin-top: 3rem;
     width: 100%;
+}
+
+p { 
+   margin-left: 4rem;
+    font-size: 1.9rem;
+    font-weight: bold;
 }
 
 ul {

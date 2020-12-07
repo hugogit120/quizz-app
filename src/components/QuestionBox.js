@@ -3,29 +3,32 @@ import ProgressBar from "./ProgressBar/ProgressBar"
 import "./QuestionBox.css"
 
 
-const QuestionBox = ({ setQuestionHandler, quizData }) => {
+const QuestionBox = ({ setQuestionHandler, quizDataNumber, questionNumber, quizData }) => {
+
+    let percentage = ((questionNumber + 1) / quizData.length) * 100
+    console.log(percentage)
 
     return (
         <div className="container">
-            <ProgressBar />
-            <form className="question-name" onSubmit={setQuestionHandler}>
-                <h1>{quizData.question}</h1>
+            <ProgressBar percentage={percentage} />
+            <form onSubmit={setQuestionHandler}>
+                <p className="question-name">{quizDataNumber.question}</p>
                 <ul>
                     <li className="list-item-one">
                         <input className="select-radio" type="radio" name="question" />
-                        <label>{quizData.a}</label>
+                        <label>{quizDataNumber.a}</label>
                     </li>
                     <li className="list-item-two">
                         <input className="select-radio" type="radio" name="question" />
-                        <label>{quizData.b}</label>
+                        <label>{quizDataNumber.b}</label>
                     </li>
                     <li className="list-item-three">
                         <input className="select-radio" type="radio" name="question" />
-                        <label>{quizData.c}</label>
+                        <label>{quizDataNumber.c}</label>
                     </li>
                     <li className="list-item-four">
                         <input className="select-radio" type="radio" name="question" />
-                        <label>{quizData.d}</label>
+                        <label>{quizDataNumber.d}</label>
                     </li>
                 </ul>
                 <div className="submit-button">

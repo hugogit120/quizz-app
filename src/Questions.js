@@ -32,7 +32,7 @@ export const quizData = [
         correct: "c"
     },
     {
-        question: "what is CSS used for",
+        question: "what is CSS used for?",
         a: "Define the style and design of a webpage",
         b: "Facilitates and helps when writing other languages",
         c: "Create functions that helps managing applications",
