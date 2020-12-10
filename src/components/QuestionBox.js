@@ -3,33 +3,28 @@ import ProgressBar from "./ProgressBar/ProgressBar"
 import "./QuestionBox.css"
 
 
-const QuestionBox = ({ setQuestionHandler, quizDataNumber, questionNumber, quizData }) => {
+const QuestionBox = ({ quizDataNumber, questionNumber, quizData, submitHandler, theAnswerHandler, checked }) => {
 
     let percentage = ((questionNumber + 1) / quizData.length) * 100
-    console.log(percentage)
 
     return (
         <div className="container">
             <ProgressBar percentage={percentage} />
-            <form onSubmit={setQuestionHandler}>
+            <form onSubmit={e => submitHandler(e, quizDataNumber.correct)}>
                 <p className="question-name">{quizDataNumber.question}</p>
                 <ul>
-                    <li className="list-item-one">
-                        <input className="select-radio" type="radio" name="question" />
-                        <label>{quizDataNumber.a}</label>
-                    </li>
-                    <li className="list-item-two">
-                        <input className="select-radio" type="radio" name="question" />
-                        <label>{quizDataNumber.b}</label>
-                    </li>
-                    <li className="list-item-three">
-                        <input className="select-radio" type="radio" name="question" />
-                        <label>{quizDataNumber.c}</label>
-                    </li>
-                    <li className="list-item-four">
-                        <input className="select-radio" type="radio" name="question" />
-                        <label>{quizDataNumber.d}</label>
-                    </li>
+                    {Object.keys(quizDataNumber.answers).map(key => (
+                        <li className="list-item-one">
+                            <input className="select-radio"
+                                type="radio"
+                                name="question"
+                                value={key}
+                                checked={!checked}
+                                onClick={e => theAnswerHandler(e, quizDataNumber.correct)}
+                            />
+                            <label>{quizDataNumber.answers[key]}</label>
+                        </li>
+                    ))}
                 </ul>
                 <div className="submit-button">
                     <input type="submit" value="submit" />
