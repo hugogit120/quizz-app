@@ -9,10 +9,10 @@ function App() {
   const [questionNumber, setQuestionNumber] = useState(0)
   const [numberOfCorrectAnswers, setNumberOfCorrectAnswers] = useState(0)
   const [theAnswer, setTheAnswer] = useState("")
-  const [checked, setChecked] = useState(false)
 
   const submitHandler = (event, correctAnswer) => {
-    event.preventDefault()
+    event.preventDefault();
+    event.target.reset()
     setQuestionNumber(questionNumber + 1)
 
     theAnswer === correctAnswer && setNumberOfCorrectAnswers(numberOfCorrectAnswers + 1)
@@ -32,7 +32,6 @@ function App() {
           questionNumber={questionNumber}
           quizData={quizData}
           submitHandler={submitHandler}
-          checked={checked}
         />
         :
         <Result
